@@ -9,7 +9,7 @@ export const error = chalk.red
 
 export const logEofolScript = (name) => {
   if (ConfigCompile.VERBOSE_COMPILE) {
-    console.log(primary(`======= Eofol6 ${name} =======`))
+    console.log(primary(`======= ${ConfigCompile.PROJECT_NAME} ${name} =======`))
   }
 }
 

@@ -1,4 +1,6 @@
-# Project
+# Boilerplate-js
+
+Boilerplate project for js projects with included scripting toolchain, base html/css, service worker, automatic css inlining and more
 
 ## Author
 

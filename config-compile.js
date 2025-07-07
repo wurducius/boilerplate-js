@@ -20,6 +20,8 @@ const ConfigCompile = {
   OPEN: true,
   PORT: 5173,
   CLEAR_SCREEN: true,
+  PROJECT_URL: "https://eofol.com/boilerplate-js/",
+  PROJECT_NAME: "Boilerplate-js",
 }
 
 export default ConfigCompile

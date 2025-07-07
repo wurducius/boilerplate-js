@@ -2,7 +2,7 @@ const { primary, success, error, prettyTime, formatElapsed } = require("./plugin
 const { processViews } = require("./plugin/process-views")
 const { optimizeAssets } = require("./plugin/optimize-assets")
 
-const PLUGIN_NAME = "Eofol6 webpack plugin"
+const PLUGIN_NAME = "Eofol webpack plugin"
 
 const onInitCompilation = (compiler) => (compilation) => {
   console.log(primary("Compiling project..."))

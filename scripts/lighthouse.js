@@ -1,7 +1,10 @@
 import open from "open"
 import { logEofolScript } from "./impl/util.js"
+import ConfigCompile from "../config-compile.js"
 
-const projectUrl = encodeURIComponent("https://eofol.com/eofol6")
+const { PROJECT_URL } = ConfigCompile
+
+const projectUrl = encodeURIComponent(PROJECT_URL)
 
 logEofolScript("lighthouse")
 

@@ -1,0 +1,14 @@
+{
+  "title": "Boilerplate-js",
+  "description": "Boilerplate project for js projects with included scripting toolchain, base html/css, service worker, automatic css inlining and more",
+  "manifest": "/manifest.json",
+  "icon": "./assets/media/images/logo.png",
+  "themeColor": "#000000",
+  "ogTitle": "Boilerplate-js",
+  "ogType": "image/png",
+  "ogUrl": "https://eofol.com/boilerplate-js",
+  "ogImage": "./assets/media/images/logo.png",
+  "ogImageAlt": "Eofol phi logo",
+  "appleTouchIcon": "./assets/media/images/logo.png",
+  "script": "assets/js/main.js"
+}
