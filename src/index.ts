@@ -38,9 +38,4 @@ registerSw({
   verbose: ConfigRuntime.VERBOSE_RUNTIME,
 })
 
-
 console.log("Hello, world!")
-
-
-
-

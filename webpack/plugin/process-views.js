@@ -1,50 +1,15 @@
 import path from "path"
 import fs from "node:fs"
 import { addAsset, CWD } from "./plugin-util.cjs"
-import HeadData from "../../head.json" with { type: "json" }
+import { htmlTemplate } from "../compile/html-template.js"
+import { headData } from "../compile/head.js"
 
-const htmlTemplate = ({
-  title,
-  description,
-  icon,
-  manifest,
-  themeColor,
-  ogTitle,
-  ogType,
-  ogUrl,
-  ogImage,
-  ogImageAlt,
-  appleTouchIcon,
-  styles,
-  script,
-  content,
-}) => `<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="${icon}" />
-    <link rel="manifest" href="${manifest}" />
-    <meta name="description" content="${description}" />
-    <meta property="og:title" content="${ogTitle ?? title}" />
-    <meta property="og:type" content="${ogType}" />
-    <meta property="og:url" content="${ogUrl}" />
-    <meta property="og:image" content="${ogImage ?? icon}" />
-    <meta property="og:image:alt" content="${ogImageAlt}" />
-    <link rel="apple-touch-icon" href="${appleTouchIcon ?? icon}" />
-    <meta name="theme-color" content="${themeColor}" />
-    <title>${title}</title><style>${styles}</style>
-  </head>
-  <body>
-    ${content}
-    <script src="${script}"></script>
-  </body>
-</html>`
+const stylesPath = path.join(CWD, "resources", "styles")
 
 const stylePaths = [
-  path.join(CWD, "resources", "styles", "theme.css"),
-  path.join(CWD, "resources", "styles", "base.css"),
-  path.join(CWD, "resources", "styles", "simple.css"),
+  path.join(stylesPath, "theme.css"),
+  path.join(stylesPath, "base.css"),
+  path.join(stylesPath, "simple.css"),
 ]
 
 const templatesPath = path.join(CWD, "templates")
@@ -67,10 +32,9 @@ export const processViews = async (compiler, compilation) => {
           const styles = (fs.existsSync(customStylesheetPath) ? [...stylePaths, customStylesheetPath] : stylePaths)
             .map((stylePath) => fs.readFileSync(stylePath).toString())
             .join(" ")
-          return htmlTemplate({ ...HeadData, styles, content })
+          return htmlTemplate({ ...headData, styles, content })
         })
       ).toString()
-
       addAsset(compilation, assetName, nextSource, { optimized: false })
     }),
   )
